@@ -21,6 +21,33 @@
 
   .content {
     height: 600px;
+
+    .model-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 35px;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      .contentTitle {
+        height: 100%;
+        font-size: 16px;
+        line-height: 32px;
+      }
+
+      .modelInput {
+        flex: 1;
+        height: 100%;
+        margin-left: 20px;
+        line-height: 32px;
+        background-image: linear-gradient(to left, #c8e4f0, #bad0f3);
+        box-shadow: 2px 4px 5px #aab9d1;
+        cursor: pointer;
+      }
+    }
   }
 
   .actionWrapper {
@@ -28,8 +55,16 @@
     height: 100%;
     text-align: center;
 
-    .submit{
+    &>:first-child {
       margin-right: 20px;
+    }
+
+    .modelBtn {
+      background-image: linear-gradient(to left, #c8e4f0, #bad0f3);
+      border: none;
+      color: #5a92ec;
+      box-shadow: 2px 4px 5px #aab9d1;
+      border-radius: 5px;
     }
   }
 }
