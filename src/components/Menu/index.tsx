@@ -22,7 +22,7 @@ const MMenu: React.FC = () => {
         setIsMediaUp(!isMediaUp);
         setMediaKey(key);
         break;
-      case 'apply':
+      case 'frame':
         setisApplyIsUp(!isApplyUp);
         setApplyKey(key);
         break;
