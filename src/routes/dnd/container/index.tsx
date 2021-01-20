@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Motion from '../motion';
+import './index.less';
 
 const Container: React.FC = () => {
   const [hideSourceOnDrag, setHideSourceOnDrag] = useState(true)
@@ -10,9 +11,9 @@ const Container: React.FC = () => {
   ])
   return (
     <DndProvider backend={HTML5Backend}>
-      <div>
-        <Motion hideSourceOnDrag={hideSourceOnDrag} src={'https://pic3.zhimg.com/80/v2-62c7f9b0205c297fe1d38af5a5e39b90_720w.jpg?source=1940ef5c'} />
-        <p>
+      <div className='dndContainer'>
+        <Motion hideSourceOnDrag={hideSourceOnDrag} />
+        <div>
           <label htmlFor="hideSourceOnDrag">
             <input
               id="hideSourceOnDrag"
@@ -22,7 +23,7 @@ const Container: React.FC = () => {
             />
             <small>Hide the source item while dragging</small>
           </label>
-        </p>
+        </div>
       </div>
     </DndProvider>
   )

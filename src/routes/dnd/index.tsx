@@ -29,7 +29,9 @@ class ReactDnd extends PureComponent<SelfProps, SelfState> {
           </Header>
         </div>
         <div className='dnd-content'>
-          <Container />
+          <div className='left'>
+            <Container />
+          </div>
         </div>
       </React.Fragment>
     )

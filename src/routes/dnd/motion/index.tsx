@@ -1,20 +1,7 @@
-import React, { useState } from 'react'
-import { useDrag, useDrop } from 'react-dnd'
-import update from 'immutability-helper'
-
-const styles = {
-  width: '100% ',
-  height: '800px',
-  position: 'relative',
-  border: '1px solid red'
-}
-
-const style = {
-  position: 'absolute',
-  width: '300px',
-  backgroundColor: 'pink',
-  cursor: 'move',
-}
+import React, { useState } from 'react';
+import { useDrag, useDrop } from 'react-dnd';
+import update from 'immutability-helper';
+import './index.less';
 
 interface BoxTypes {
   id: any,
@@ -35,15 +22,15 @@ const Box = ({ id, left, top, hideSourceOnDrag, children }: BoxTypes) => {
     return <div ref={drag} />
   }
   return (
-    <div ref={drag} style={{ ...style, left, top } as any}>
+    <div ref={drag} style={{ left, top }} className='drag'>
       {children}
     </div>
   )
 }
 
-const Motion = ({ hideSourceOnDrag, src }: { hideSourceOnDrag: any, src: string }) => {
+const Motion = ({ hideSourceOnDrag }: { hideSourceOnDrag: any }) => {
   const [boxes, setBoxes] = useState({
-    a: { top: 10, left: 10, title: 'Drag me around' },
+    a: { top: 0, left: 10, title: 'Drag me around' },
   } as any)
   const [, drop] = useDrop({
     accept: 'box',
@@ -65,7 +52,7 @@ const Motion = ({ hideSourceOnDrag, src }: { hideSourceOnDrag: any, src: string 
     )
   }
   return (
-    <div ref={drop} style={styles as any}>
+    <div ref={drop} className='drop'>
       {Object.keys(boxes).map(key => {
         const { left, top, title } = boxes[key];
         return (
@@ -77,7 +64,6 @@ const Motion = ({ hideSourceOnDrag, src }: { hideSourceOnDrag: any, src: string 
             hideSourceOnDrag={hideSourceOnDrag}
           >
             {title}
-            <img src={src} alt="图片" style={{ width: '150px', height: '150px', overflow: 'hidden' }} />
           </Box>
         )
       })}
