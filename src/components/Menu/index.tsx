@@ -22,7 +22,7 @@ const MMenu: React.FC = () => {
         setIsMediaUp(!isMediaUp);
         setMediaKey(key);
         break;
-      case 'apply':
+      case 'frame':
         setisApplyIsUp(!isApplyUp);
         setApplyKey(key);
         break;
@@ -48,9 +48,17 @@ const MMenu: React.FC = () => {
               <div className='menuTitle'>
                 <div className='title' onClick={() => onTitleClick(i.key)}>
                   {i.title}
-                  {(isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey) ? <CaretDownOutlined className='Icon' /> : <CaretUpOutlined className='Icon' />}
+                  {
+                    (isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey)
+                      ? <CaretDownOutlined className='Icon' />
+                      : <CaretUpOutlined className='Icon' />
+                  }
                 </div>
-                <div className={(isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey) ? 'close' : 'itemList'} ref={menuRef}>
+                <div
+                  className={(isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey)
+                    ? 'close' : 'itemList'}
+                  ref={menuRef}
+                >
                   {i.children.map(i => {
                     return (
                       <div key={i.key} className='menuItem'>
@@ -64,7 +72,6 @@ const MMenu: React.FC = () => {
           )
         })
       }
-
     </div>
   )
 }

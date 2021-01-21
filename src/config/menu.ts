@@ -23,7 +23,7 @@ const menuList = [
   },
   {
     title: 'FRAME',
-    key: 'apply',
+    key: 'frame',
     path: '',
     type: 'menu',
     children: [
@@ -46,6 +46,13 @@ const menuList = [
         path: '/app/dvajs',
         power: true,
         title: 'DVAJS',
+        type: 'function'
+      },
+      {
+        key: 'dnd',
+        path: '/app/dnd',
+        power: true,
+        title: 'REACTDND',
         type: 'function'
       },
       {

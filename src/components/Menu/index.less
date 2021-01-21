@@ -1,6 +1,9 @@
+@import '~../../config/styles/bgc.less';
+
 .menu {
   height: 100%;
-  background-image: linear-gradient(to right, #9cd7f1, #8cb4f5);
+  background-image: @menubgc;
+  background-color: #fff;
 
   .menuHeader {
     display: flex;
@@ -67,7 +70,7 @@
             background-color: rgb(116, 160, 241);
             font-weight: 700;
             color: #fff;
-            box-shadow: 0 2px 5px 2px #5378f0;
+            box-shadow: @boxShadow;
           }
 
           &:hover {

@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from 'react';
+import { connect } from 'react-redux';
 import { Tree } from 'antd';
+import { setSelectTree } from '../../model/action';
 
 import './index.less';
 
@@ -21,21 +23,29 @@ function treeRender(menuList: any) {
 
 interface IProps {
   data: any;
+  setSelectTree?: any;
+  selected: any;
 }
 
 const MTree: React.FC<IProps> = ({
-  data,
+  data, setSelectTree, selected,
 }) => {
-  const [close, setClose] = useState<boolean>(false);
+  const [close, setClose] = useState<boolean>(true);
 
   const onCloseTree = useCallback(() => {
     setClose(!close);
   }, [close]);
 
+  console.log(selected, '------------------');
+
+  const onSelectItem = useCallback((e) => {
+    setSelectTree(e);
+  }, [setSelectTree]);
+
   return (
     <div className={close ? 'treeClose' : 'treeWrapper'}>
       <div className={'treeList'}>
-        <Tree defaultExpandAll blockNode defaultSelectedKeys={['base']}>
+        <Tree defaultExpandAll blockNode defaultSelectedKeys={selected} onSelect={onSelectItem}>
           {treeRender(data.child)}
         </Tree>
       </div>
@@ -44,4 +54,7 @@ const MTree: React.FC<IProps> = ({
   )
 }
 
-export default MTree;
+export default connect(
+  (state: any) => ({ selected: state.treeReducer }),
+  { setSelectTree }
+)(MTree);
