@@ -36,8 +36,6 @@ const MTree: React.FC<IProps> = ({
     setClose(!close);
   }, [close]);
 
-  console.log(selected, '------------------');
-
   const onSelectItem = useCallback((e) => {
     setSelectTree(e);
   }, [setSelectTree]);
