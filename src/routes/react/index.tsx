@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import MTree from '../../components/Tree';
 import { reactTreeData } from '../../config/treeData';
 import MTable from '../../components/MTable';
 import Header from '../../components/Header';
 import MModel from '../../components/MModel';
 import { EllipsisOutlined } from '@ant-design/icons';
+import { setSelectTree } from '../../model/action';
 import { Button } from 'antd';
 
 import './index.less';
 
-const UseReact: React.FC = () => {
+interface IProps {
+  selected: any;
+  setSelectTree: any;
+}
+
+const UseReact: React.FC<IProps> = ({
+  selected, setSelectTree,
+}) => {
   const [visible, setVisible] = useState<boolean>(false);
 
   const showModel = () => {
@@ -22,7 +31,6 @@ const UseReact: React.FC = () => {
 
   const onSubmit = () => {
     setVisible(false);
-    console.log(11111);
   }
 
   const renderAction = () => (
@@ -37,9 +45,13 @@ const UseReact: React.FC = () => {
     }
   )
 
+  const selectItem = (data: string[]) => {
+    setSelectTree({ data, library: 'react' });
+  }
+
   return (
     <div className='reactWrapper' >
-      <MTree data={reactTreeData} />
+      <MTree data={reactTreeData} library="react" selectItem={selectItem} selected={selected.react} />
       <div className='right'>
         <Header title='REACT'>
           <div>
@@ -78,4 +90,7 @@ const UseReact: React.FC = () => {
   )
 };
 
-export default UseReact;
+export default connect(
+  (state: any) => ({ selected: state.treeReducer }),
+  { setSelectTree }
+)(UseReact);
