@@ -27,14 +27,20 @@ const RoutesConfig: RouteTypes[] = [
     exact: true,
   },
   {
+    key: 'dnd',
+    path: '/app/dnd',
+    component: Routes.ReactDnd,
+    exact: true,
+  },
+  {
     key: 'redux',
     path: '/app/redux',
     component: Routes.Redux,
     exact: true,
   },
   {
-    key: 'dva',
-    path: '/app/dva',
+    key: 'dnd',
+    path: '/app/dnd',
     component: Routes.React,
     exact: true,
   },

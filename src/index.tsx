@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './model/store';
 import RouterConfig from './routes/router';
 import './index.less';
 
 ReactDOM.render(
-  <RouterConfig />,
+  <Provider store={store}>
+    <RouterConfig />
+  </Provider>,
   document.getElementById('root')
 );
