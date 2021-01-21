@@ -26,16 +26,21 @@ interface IProps {
 const MTree: React.FC<IProps> = ({
   data,
 }) => {
-  const [close, setClose] = useState<boolean>(false);
+  const [close, setClose] = useState<boolean>(true);
+  const [selectItem, setSelectItem] = useState<string[]>(['base']);
 
   const onCloseTree = useCallback(() => {
     setClose(!close);
   }, [close]);
 
+  const onSelectItem = useCallback((e) => {
+    setSelectItem(e);
+  }, []);
+
   return (
     <div className={close ? 'treeClose' : 'treeWrapper'}>
       <div className={'treeList'}>
-        <Tree defaultExpandAll blockNode defaultSelectedKeys={['base']}>
+        <Tree defaultExpandAll blockNode defaultSelectedKeys={selectItem} onSelect={onSelectItem}>
           {treeRender(data.child)}
         </Tree>
       </div>
