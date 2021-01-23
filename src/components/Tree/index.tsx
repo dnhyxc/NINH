@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { Tree } from 'antd';
 
 import './index.less';
@@ -24,29 +24,29 @@ interface IProps {
   setSelectTree?: any;
   selected: any;
   selectItem?: (data: string[]) => void;
+  isShowTree: boolean;
+  controlDisplayOfTree?: () => void;
 }
 
 const MTree: React.FC<IProps> = ({
-  data, selected, selectItem,
+  data, selected, selectItem, controlDisplayOfTree, isShowTree,
 }) => {
-  const [close, setClose] = useState<boolean>(false);
-
   const onCloseTree = useCallback(() => {
-    setClose(!close);
-  }, [close]);
+    controlDisplayOfTree && controlDisplayOfTree();
+  }, [controlDisplayOfTree]);
 
   const onSelectItem = useCallback((data) => {
     selectItem && selectItem(data);
   }, [selectItem]);
 
   return (
-    <div className={close ? 'treeClose' : 'treeWrapper'}>
+    <div className={isShowTree ? 'treeClose' : 'treeWrapper'}>
       <div className={'treeList'}>
         <Tree defaultExpandAll blockNode defaultSelectedKeys={selected} onSelect={onSelectItem}>
           {treeRender(data.child)}
         </Tree>
       </div>
-      <div className='closeTree' onClick={onCloseTree}>{close ? '>' : '<'}</div>
+      <div className='closeTree' onClick={onCloseTree}>{isShowTree ? '>' : '<'}</div>
     </div>
   )
 }
