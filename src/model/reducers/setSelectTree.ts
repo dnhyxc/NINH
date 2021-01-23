@@ -1,16 +1,22 @@
-import { SETSELECTTREE } from '../actionTypes';
+import { REACTTREE, BASEJSTREE } from '../actionTypes';
 
 const initValue = {
-  selected: ['base'],
+  react: ['base'],
+  baseJs: ['base'],
 }
 
 const treeReducer = (state = initValue, action: any) => {
   switch (action.type) {
-    case SETSELECTTREE:
-      return state.selected = action.paylod;
-
+    case REACTTREE:
+      return {
+        ...state, react: action.payload,
+      }
+    case BASEJSTREE:
+      return {
+        ...state, baseJs: action.payload,
+      }
     default:
-      return ['base']
+      return state
   }
 }
 

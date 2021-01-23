@@ -1,1 +1,3 @@
 export const SETSELECTTREE = 'SETSELECTTREE';
+export const REACTTREE = 'REACTTREE';
+export const BASEJSTREE = 'BASEJSTREE';

@@ -1,3 +1,15 @@
-import { SETSELECTTREE } from '../actionTypes';
+import { BASEJSTREE, REACTTREE } from '../actionTypes';
 
-export const setSelectTree = (data: any) => ({ type: SETSELECTTREE, paylod: data });
+interface ParamsTypes {
+  data: string[],
+  library: string;
+}
+
+
+export const setSelectTree = (params: ParamsTypes) => {
+  if (params.library === 'react') {
+    return { type: REACTTREE, payload: params.data };
+  } else if (params.library === 'baseJs') {
+    return { type: BASEJSTREE, payload: params.data };
+  }
+};

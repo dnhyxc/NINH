@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import menuList from '../../config/menu';
+import MScrollbar from '../MScrollbar';
 import './index.less';
 
 const MMenu: React.FC = () => {
@@ -41,37 +42,41 @@ const MMenu: React.FC = () => {
       <div className='menuHeader'>
         <div className='title'>FRONTEND</div>
       </div>
-      {
-        menuList.map(i => {
-          return (
-            <div key={i.key} className='menuList'>
-              <div className='menuTitle'>
-                <div className='title' onClick={() => onTitleClick(i.key)}>
-                  {i.title}
-                  {
-                    (isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey)
-                      ? <CaretDownOutlined className='Icon' />
-                      : <CaretUpOutlined className='Icon' />
-                  }
+      <div className='menuContainer'>
+        <MScrollbar>
+          {
+            menuList.map(i => {
+              return (
+                <div key={i.key} className='menuList'>
+                  <div className='menuTitle'>
+                    <div className='title' onClick={() => onTitleClick(i.key)}>
+                      {i.title}
+                      {
+                        (isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey)
+                          ? <CaretDownOutlined className='Icon' />
+                          : <CaretUpOutlined className='Icon' />
+                      }
+                    </div>
+                    <div
+                      className={(isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey)
+                        ? 'close' : 'itemList'}
+                      ref={menuRef}
+                    >
+                      {i.children.map(i => {
+                        return (
+                          <div key={i.key} className='menuItem'>
+                            <NavLink activeClassName='active' className='link' to={i.path}>{i.title}</NavLink>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
                 </div>
-                <div
-                  className={(isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey)
-                    ? 'close' : 'itemList'}
-                  ref={menuRef}
-                >
-                  {i.children.map(i => {
-                    return (
-                      <div key={i.key} className='menuItem'>
-                        <NavLink activeClassName='active' className='link' to={i.path}>{i.title}</NavLink>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            </div>
-          )
-        })
-      }
+              )
+            })
+          }
+        </MScrollbar>
+      </div>
     </div>
   )
 }
