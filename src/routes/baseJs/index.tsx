@@ -1,5 +1,5 @@
-import { Input } from 'antd';
 import React from 'react';
+import { Input } from 'antd';
 import Header from '../../components/Header';
 import MTree from '../../components/Tree';
 import { connect } from 'react-redux';
@@ -16,14 +16,17 @@ interface IProps {
 const BaseJs: React.FC<IProps> = ({
   selected, setSelectTree,
 }) => {
-
   const selectItem = (data: string[]) => {
     setSelectTree({ data, library: 'baseJs' });
   }
 
   return (
     <div className='baseWrapper'>
-      <MTree data={baseJsTreeData} library='baseJs' selectItem={selectItem} selected={selected.baseJs} />
+      <MTree
+        data={baseJsTreeData}
+        selectItem={selectItem}
+        selected={selected.baseJs}
+      />
       <div className='right'>
         <Header title={'BASEJS'}>
           <Input className='baseInput' />

@@ -51,7 +51,7 @@ const UseReact: React.FC<IProps> = ({
 
   return (
     <div className='reactWrapper' >
-      <MTree data={reactTreeData} library="react" selectItem={selectItem} selected={selected.react} />
+      <MTree data={reactTreeData} selectItem={selectItem} selected={selected.react} />
       <div className='right'>
         <Header title='REACT'>
           <div>

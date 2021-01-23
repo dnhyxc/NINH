@@ -23,7 +23,6 @@ interface IProps {
   data: any;
   setSelectTree?: any;
   selected: any;
-  library?: string;
   selectItem?: (data: string[]) => void;
 }
 
