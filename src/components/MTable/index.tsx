@@ -4,6 +4,7 @@ import { DndProvider, useDrag, useDrop, createDndContext } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 import { tableData, setTableColumns } from '../../config/tableConfig';
+import MScrollbar from '../MScrollbar';
 import './index.less';
 
 interface DragableBodyRowType {
@@ -106,22 +107,24 @@ const MTable: React.FC<IProps> = ({
   return (
     <DndProvider manager={manager.current.dragDropManager as any}>
       <div ref={tableRef} className='table-wrapper'>
-        <Table
-          columns={columns}
-          expandable={{
-            expandedRowRender: (record: any) => <div style={{ margin: 0 }}>{record.description}</div>,
-            // 设置指定item没有展开详情
-            // rowExpandable: (record: any) => record.name !== 'Not Expandable',
-          }}
-          rowSelection={rowSelection}
-          dataSource={data}
-          components={components}
-          onRow={(record, index) => ({
-            index,
-            moveRow,
-          } as any)}
-          pagination={{ position: ['bottomCenter'], onChange: onPageChange }}
-        />,
+        <MScrollbar>
+          <Table
+            columns={columns}
+            expandable={{
+              expandedRowRender: (record: any) => <div style={{ margin: 0 }}>{record.description}</div>,
+              // 设置指定item没有展开详情
+              // rowExpandable: (record: any) => record.name !== 'Not Expandable',
+            }}
+            rowSelection={rowSelection}
+            dataSource={data}
+            components={components}
+            onRow={(record, index) => ({
+              index,
+              moveRow,
+            } as any)}
+            pagination={{ position: ['bottomCenter'], onChange: onPageChange }}
+          />
+        </MScrollbar>
       </div>
     </DndProvider >
   )
