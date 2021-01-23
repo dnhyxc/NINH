@@ -3,7 +3,7 @@
 .menu {
   height: 100%;
   background-image: @menubgc;
-  background-color: #fff;
+  padding: 0 3px;
 
   .menuHeader {
     display: flex;
@@ -21,105 +21,110 @@
     }
   }
 
-  .menuList {
-    cursor: pointer;
+  .menuContainer {
+    height: calc(100% - 60px);
+    overflow: auto;
 
-    .menuTitle {
-      display: flex;
-      flex-direction: column;
+    .menuList {
+      cursor: pointer;
 
-      .title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 10px;
-        height: 45px;
-        font-weight: 700;
-        color: #6ca3fc;
-
-        .Icon {
-          font-size: 20px;
-        }
-      }
-
-      .close {
-
-        .menuItem {
-          height: 45px;
-          line-height: 45px;
-          text-align: left;
-          margin-bottom: 0px;
-          height: 0px;
-          transition: all 0.3s;
-
-          .link {
-            padding: 0 15px;
-            display: block;
-            width: 100%;
-            height: 100%;
-            color: rgb(55, 132, 177);
-            border-radius: 5px;
-            display: none;
-
-            &:hover {
-              color: rgb(142, 127, 240);
-            }
-          }
-
-          .active {
-            background-color: rgb(116, 160, 241);
-            font-weight: 700;
-            color: #fff;
-            box-shadow: @boxShadow;
-          }
-
-          &:hover {
-            background-color: rgb(131, 180, 243);
-            border-radius: 5px;
-            font-weight: 600;
-          }
-        }
-      }
-
-      .itemList {
-        flex: 1;
+      .menuTitle {
         display: flex;
         flex-direction: column;
-        padding: 0 10px;
 
-        .menuItem {
-          height: 45px;
-          line-height: 45px;
-          text-align: left;
-          margin-bottom: 10px;
-          transition: all 0.2s;
+        .title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 10px;
+          height: 40px;
+          font-weight: 700;
+          color: #6ca3fc;
 
-          .link {
-            padding: 0 15px;
-            display: block;
-            width: 100%;
-            height: 100%;
-            color: rgb(55, 132, 177);
-            border-radius: 5px;
-            display: block;
+          .Icon {
+            font-size: 20px;
+          }
+        }
+
+        .close {
+
+          .menuItem {
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            margin-bottom: 0px;
+            height: 0px;
             transition: all 0.3s;
 
+            .link {
+              padding: 0 15px;
+              display: block;
+              width: 100%;
+              height: 100%;
+              color: rgb(55, 132, 177);
+              border-radius: 5px;
+              display: none;
+
+              &:hover {
+                color: rgb(142, 127, 240);
+              }
+            }
+
+            .active {
+              background-color: rgb(116, 160, 241);
+              font-weight: 700;
+              color: #fff;
+              box-shadow: @boxShadow;
+            }
+
             &:hover {
-              color: rgb(142, 127, 240);
+              background-color: rgb(131, 180, 243);
+              border-radius: 5px;
+              font-weight: 600;
             }
           }
+        }
 
-          .active {
-            background-color: rgb(116, 160, 241);
-            font-weight: 700;
-            color: #fff;
-            box-shadow: 0 2px 5px 2px #5378f0;
-          }
+        .itemList {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          padding: 0 10px;
 
-          &:hover {
-            background-color: rgb(131, 180, 243);
-            border-radius: 5px;
-            font-weight: 600;
+          .menuItem {
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+
+            .link {
+              padding: 0 15px;
+              display: block;
+              width: 100%;
+              height: 100%;
+              color: rgb(55, 132, 177);
+              border-radius: 5px;
+              display: block;
+              transition: all 0.3s;
+
+              &:hover {
+                color: rgb(142, 127, 240);
+              }
+            }
+
+            .active {
+              background-color: rgb(116, 160, 241);
+              font-weight: 700;
+              color: #fff;
+              box-shadow: 0 2px 5px 2px #5378f0;
+            }
+
+            &:hover {
+              background-color: rgb(131, 180, 243);
+              border-radius: 5px;
+              font-weight: 600;
+            }
           }
         }
       }

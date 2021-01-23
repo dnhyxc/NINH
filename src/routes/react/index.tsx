@@ -73,7 +73,7 @@ const UseReact: React.FC<IProps> = ({
           <div className='content'>
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => {
               return (
-                <div className='model-content'>
+                <div className='model-content' key={i}>
                   <span className='contentTitle'>name:</span>
                   <div className='modelInput'>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
                 </div>
