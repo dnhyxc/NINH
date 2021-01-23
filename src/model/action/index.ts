@@ -1,10 +1,14 @@
-import { BASEJSTREE, REACTTREE } from '../actionTypes';
+import { BASEJSTREE, REACTTREE, CLOSEBASEJSTREE, CLOSEREACTTREE } from '../actionTypes';
 
 interface ParamsTypes {
   data: string[],
   library: string;
 }
 
+interface CloseTreeParams {
+  library: string;
+  data: boolean;
+}
 
 export const setSelectTree = (params: ParamsTypes) => {
   if (params.library === 'react') {
@@ -13,3 +17,12 @@ export const setSelectTree = (params: ParamsTypes) => {
     return { type: BASEJSTREE, payload: params.data };
   }
 };
+
+export const closeTree = (params: CloseTreeParams) => {
+  if (params.library === 'react') {
+    return { type: CLOSEREACTTREE, payload: params.data };
+  }
+  if (params.library === 'baseJs') {
+    return { type: CLOSEBASEJSTREE, payload: params.data };
+  }
+}

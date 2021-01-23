@@ -3,7 +3,7 @@ import { Input } from 'antd';
 import Header from '../../components/Header';
 import MTree from '../../components/Tree';
 import { connect } from 'react-redux';
-import { setSelectTree } from '../../model/action';
+import { setSelectTree, closeTree } from '../../model/action';
 import { baseJsTreeData } from '../../config/treeData';
 
 import './index.less';
@@ -11,13 +11,19 @@ import './index.less';
 interface IProps {
   selected: any;
   setSelectTree: any;
+  isShowTree: any;
+  closeTree: any;
 }
 
 const BaseJs: React.FC<IProps> = ({
-  selected, setSelectTree,
+  selected, setSelectTree, isShowTree, closeTree,
 }) => {
   const selectItem = (data: string[]) => {
     setSelectTree({ data, library: 'baseJs' });
+  }
+
+  const controlDisplayOfTree = () => {
+    closeTree({ data: !isShowTree.baseJs, library: 'baseJs' });
   }
 
   return (
@@ -26,6 +32,8 @@ const BaseJs: React.FC<IProps> = ({
         data={baseJsTreeData}
         selectItem={selectItem}
         selected={selected.baseJs}
+        isShowTree={isShowTree.baseJs}
+        controlDisplayOfTree={controlDisplayOfTree}
       />
       <div className='right'>
         <Header title={'BASEJS'}>
@@ -40,6 +48,7 @@ const BaseJs: React.FC<IProps> = ({
 export default connect(
   (state: any) => ({
     selected: state.treeReducer,
+    isShowTree: state.closeTreeReducer,
   }),
-  { setSelectTree }
+  { setSelectTree, closeTree }
 )(BaseJs);
