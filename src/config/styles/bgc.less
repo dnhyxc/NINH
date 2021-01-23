@@ -24,22 +24,22 @@
 }
 
 // 设置滚动条样式
-.scrollbar() {
-  width: 7px;
-  background-color: #fff;
+.scrollbar(@width) {
+  width: @width;
+  background-color: rbga(255, 255, 255, 0);
   border-radius: 5px;
 }
 
-.scrollbarThumb() {
-  background: #ccc;
+.scrollbarThumb(@color, @display) {
+  background: @color ;
   border-radius: 5px;
-  display: none;
+  display: @display;
 }
 
-.hoverScrollbarThumb() {
-  background: #ccc;
+.hoverScrollbarThumb(@color, @display) {
+  background: @color;
   border-radius: 5px;
-  display: block;
+  display: @display
 }
 
 @btnColor: linear-gradient(to left, #c8e4f0, #bad0f3);
