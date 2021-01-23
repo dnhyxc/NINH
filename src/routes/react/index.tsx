@@ -6,7 +6,7 @@ import MTable from '../../components/MTable';
 import Header from '../../components/Header';
 import MModel from '../../components/MModel';
 import { EllipsisOutlined } from '@ant-design/icons';
-import { setSelectTree } from '../../model/action';
+import { setSelectTree, closeTree } from '../../model/action';
 import { Button } from 'antd';
 
 import './index.less';
@@ -14,10 +14,12 @@ import './index.less';
 interface IProps {
   selected: any;
   setSelectTree: any;
+  isShowTree: any;
+  closeTree: any;
 }
 
 const UseReact: React.FC<IProps> = ({
-  selected, setSelectTree,
+  selected, setSelectTree, isShowTree, closeTree,
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
 
@@ -49,9 +51,20 @@ const UseReact: React.FC<IProps> = ({
     setSelectTree({ data, library: 'react' });
   }
 
+
+  const controlDisplayOfTree = () => {
+    closeTree({ data: !isShowTree.react, library: 'react' });
+  }
+
   return (
     <div className='reactWrapper' >
-      <MTree data={reactTreeData} library="react" selectItem={selectItem} selected={selected.react} />
+      <MTree
+        data={reactTreeData}
+        selectItem={selectItem}
+        selected={selected.react}
+        isShowTree={isShowTree.react}
+        controlDisplayOfTree={controlDisplayOfTree}
+      />
       <div className='right'>
         <Header title='REACT'>
           <div>
@@ -91,6 +104,9 @@ const UseReact: React.FC<IProps> = ({
 };
 
 export default connect(
-  (state: any) => ({ selected: state.treeReducer }),
-  { setSelectTree }
+  (state: any) => ({
+    selected: state.treeReducer,
+    isShowTree: state.closeTreeReducer,
+  }),
+  { setSelectTree, closeTree }
 )(UseReact);
