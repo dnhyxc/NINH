@@ -6,6 +6,7 @@ import ReactDnd from './dnd';
 import BaseJs from './baseJs';
 import Webpack from './webpack';
 import Auth from './auth';
+import Login from './login';
 
 export {
   Home,
@@ -16,4 +17,5 @@ export {
   BaseJs,
   Webpack,
   Auth,
+  Login,
 }

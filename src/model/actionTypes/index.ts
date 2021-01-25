@@ -5,3 +5,6 @@ export const BASEJSTREE = 'BASEJSTREE';
 // 控制树组件是否关闭
 export const CLOSEREACTTREE = 'CLOSEREACTTREE';
 export const CLOSEBASEJSTREE = 'CLOSEBASEJSTREE';
+
+// Login
+export const LOGIN = 'LOGIN';
