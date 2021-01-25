@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { RoutesConfig } from './config/routers';
-import { Login } from './routes';
 import App from './routes/App';
 
 const RouterConfig: React.FC = ({ userInfo }: any) => {
