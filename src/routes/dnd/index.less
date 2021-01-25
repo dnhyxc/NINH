@@ -1,9 +1,16 @@
 .dnd-content {
+  display: flex;
   width: 100%;
   height: calc(100% - 70px);
+  border: 1px skyblue solid;
 
   .left {
-    width: 100%;
+    width: 240px;
     height: 100%;
+  }
+
+  .right {
+    flex: 1;
+    border: 1px solid red;
   }
 }

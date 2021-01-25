@@ -1,4 +1,4 @@
-import { BASEJSTREE, REACTTREE, CLOSEBASEJSTREE, CLOSEREACTTREE } from '../actionTypes';
+import { BASEJSTREE, REACTTREE, CLOSEBASEJSTREE, CLOSEREACTTREE, LOGIN } from '../actionTypes';
 
 interface ParamsTypes {
   data: string[],
@@ -26,3 +26,5 @@ export const closeTree = (params: CloseTreeParams) => {
     return { type: CLOSEBASEJSTREE, payload: params.data };
   }
 }
+
+export const login = (params: any) => ({ type: LOGIN, payload: params });
