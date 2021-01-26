@@ -1,14 +1,155 @@
+@import '~../../index.less';
+@import '~../../config/styles/bgc.less';
+
 .login {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+  background-position: 50%;
+  height: 100vh;
   width: 100%;
-  height: 100%;
-  border: 1px solid red;
+  background-size: cover;
+  -webkit-animation-name: imageAnimation;
+  animation-name: imageAnimation;
+  -webkit-animation-duration: 26s;
+  animation-duration: 26s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  overflow-y: overlay;
+  background-image:
+    url(../../assets/image/img1.jpg),
+    url(../../assets/image/img2.jpg),
+    url(../../assets/image/img3.jpg),
+    url(../../assets/image/img4.jpg),
+    url(../../assets/image/img5.jpg);
 
-  .carousel {
-    height: 100%;
+  .login-info {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    height: 500px;
+    margin-left: 220px;
+    background-color: rgba(225, 225, 225, 0);
 
-    .carousel-image {
+    .logo {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
-      height: 100%;
+      height: 138px;
+      margin-bottom: 60px;
+
+      .logoImg {
+        width: 235px;
+        height: 100%;
+
+        .icon {
+          height: 100%;
+          width: 100%;
+          color: #6ca3fc;
+        }
+      }
+
+      .logoText {
+        font-size: 35px;
+        font-weight: 700;
+        color: #6ca3fc;
+        text-shadow: 3px 5px 5px #6ca3fc;
+      }
     }
+
+    .userInfo {
+      flex: 1;
+      width: 100%;
+
+      .loginTabs {
+        width: 100%;
+        height: 100%;
+
+        .account {
+          width: 190px;
+          text-align: center;
+          font-size: 16px;
+          color: #fff;
+        }
+
+        .ant-tabs-tab {
+          margin: 0;
+        }
+
+        .ant-tabs-ink-bar {
+          height: 4px;
+          background: #8cb4f5;
+        }
+
+        .ant-tabs-nav-wrap {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+
+    .act {
+      height: 72px;
+      width: 100%;
+      padding-top: 20px;
+
+      .ant-input:focus {
+        border-bottom: 1px solid #8cb4f5;
+        box-shadow: none;
+      }
+
+      .actInp {
+        height: 46px;
+        border-radius: 0;
+        border: 0;
+        border-bottom: 1px solid #d7dfeb;
+        font-size: 18px;
+        padding: 4px 5px;
+        background-color: transparent;
+        outline-style: none;
+      }
+
+      input::-webkit-input-placeholder {
+        color: #fff;
+      }
+    }
+
+    .loginSubmit {
+      height: 56px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      border: none;
+      background-image: @menubgc;
+
+      &:hover {
+        background-image: @btnHoverColor;
+      }
+    }
+  }
+}
+
+@keyframes imageAnimation {
+  0% {
+    background-image: url(../../assets/image/img1.jpg);
+  }
+
+  20% {
+    background-image: url(../../assets/image/img2.jpg);
+  }
+
+  40% {
+    background-image: url(../../assets/image/img3.jpg);
+  }
+
+  60% {
+    background-image: url(../../assets/image/img4.jpg);
+  }
+
+  80% {
+    background-image: url(../../assets/image/img5.jpg);
   }
 }
