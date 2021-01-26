@@ -56,6 +56,22 @@ const RoutesConfig: RouteTypes[] = [
     component: Routes.Auth,
     exact: true,
   },
+  {
+    key: 'login',
+    path: '/app/login',
+    component: Routes.Login,
+    exact: true,
+  }
 ];
 
-export default RoutesConfig;
+const LoginRouter = {
+  key: 'login',
+  path: '/app/login',
+  component: Routes.Login,
+  exact: true,
+}
+
+export {
+  RoutesConfig,
+  LoginRouter
+};

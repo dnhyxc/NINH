@@ -77,6 +77,13 @@ const menuList = [
         title: 'AUTH',
         type: 'function'
       },
+      {
+        key: 'login',
+        path: '/app/login',
+        power: true,
+        title: 'LOGIN',
+        type: 'function'
+      },
     ]
   }
 ]
