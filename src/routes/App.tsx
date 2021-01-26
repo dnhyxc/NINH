@@ -14,12 +14,14 @@ interface IProps extends RouteComponentProps {
 }
 
 const App: React.FC<IProps> = ({ children, noWrapper, userInfo, location, history }) => {
-  if (!userInfo.userName && !userInfo.passWord) {
-    if (location.pathname === '/app/login') {
-      return <Login />
-    } else if (location.pathname !== '/app/login') {
+  if (userInfo.userName && userInfo.passWord) {
+    if (location.pathname !== '/app/login') {
       return <Redirect to='/app/login' />
     }
+  }
+
+  if (location.pathname === '/app/login') {
+    return <Login />
   }
 
   return (
