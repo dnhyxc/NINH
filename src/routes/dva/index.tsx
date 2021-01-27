@@ -7,7 +7,7 @@ const DvaJS: React.FC = () => {
   return (
     <div>
       <TextArea />
-      <Button>DvaJS</Button>
+      <Button type='primary'>DvaJS</Button>
     </div>
   )
 }
