@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { RoutesConfig } from './config/routers';
 import App from './routes/App';
 
-const RouterConfig: React.FC = ({ userInfo }: any) => {
+const RouterConfig: React.FC = () => {
   return (
-    <div>
+    <React.Fragment>
       <Router>
         <App>
           <Switch>
@@ -24,7 +24,7 @@ const RouterConfig: React.FC = ({ userInfo }: any) => {
           </Switch>
         </App>
       </Router>
-    </div>
+    </React.Fragment>
   )
 };
 
