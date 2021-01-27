@@ -10,6 +10,7 @@ module.exports = override(
   // 支持 antd 主题定制
   addLessLoader({
     javascriptEnabled: true,
+    modifyVars: { '@primary-color': '#ccc' },
   }),
 );
 
